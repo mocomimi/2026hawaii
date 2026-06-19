@@ -1,0 +1,528 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#0B3A53">
+<title>HAWAII 2026 ｜ 旅のしおり</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,500;0,9..144,600;0,9..144,900;1,9..144,500&family=Noto+Sans+JP:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --ocean:#0B3A53;
+    --ocean-deep:#072836;
+    --coral:#FF6B4A;
+    --gold:#F4A93C;
+    --sand:#F6EFE3;
+    --sand-deep:#ECE0CC;
+    --ink:#16262E;
+    --ink-soft:#4B5C63;
+    --shell:#FFFDF8;
+    --line:#E2D6C2;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
+  body{
+    font-family:"Noto Sans JP",system-ui,sans-serif;
+    background:var(--sand);
+    color:var(--ink);
+    line-height:1.7;
+    -webkit-font-smoothing:antialiased;
+    overflow-x:hidden;
+  }
+  .wrap{max-width:680px;margin:0 auto}
+  .disp{font-family:"Fraunces",Georgia,serif}
+  .eyebrow{
+    font-family:"Fraunces",serif;
+    font-weight:600;font-style:italic;
+    letter-spacing:.04em;color:var(--coral);
+    font-size:.95rem;
+  }
+
+  /* ---------- HERO ---------- */
+  .hero{
+    position:relative;
+    background:linear-gradient(176deg,#F7C24A 0%,#F4A93C 16%,#FF7A4C 42%,#E8553F 60%,#1C5772 84%,#0B3A53 100%);
+    color:var(--shell);
+    padding:62px 24px 96px;
+    overflow:hidden;
+    text-align:center;
+  }
+  .sun{
+    position:absolute;left:50%;top:46%;transform:translate(-50%,-50%);
+    width:230px;height:230px;border-radius:50%;
+    background:radial-gradient(circle,#FFE9B0 0%,#FFD27A 38%,rgba(255,180,90,0) 70%);
+    opacity:.85;pointer-events:none;
+  }
+  .hero-inner{position:relative;z-index:2}
+  .hero .kicker{
+    font-family:"Fraunces",serif;font-style:italic;font-weight:500;
+    letter-spacing:.22em;text-transform:uppercase;font-size:.78rem;
+    opacity:.92;margin-bottom:10px;
+  }
+  .hero h1{
+    font-family:"Fraunces",serif;font-weight:900;
+    font-size:clamp(3.6rem,17vw,5.6rem);
+    line-height:.92;letter-spacing:-.01em;
+    text-shadow:0 2px 24px rgba(7,40,55,.28);
+  }
+  .hero h1 small{display:block;font-size:.34em;font-weight:600;letter-spacing:.32em;font-style:normal;margin-top:14px;opacity:.95}
+  .hero .meta{
+    margin-top:22px;font-size:.92rem;font-weight:500;
+    opacity:.96;line-height:1.9;
+  }
+  .hero .meta b{font-weight:700}
+  .countdown{
+    margin:26px auto 8px;display:inline-flex;align-items:center;gap:6px;
+    background:rgba(7,40,55,.28);backdrop-filter:blur(4px);
+    border:1px solid rgba(255,255,255,.34);
+    padding:14px 20px;border-radius:18px;
+  }
+  .cd-cell{display:flex;flex-direction:column;align-items:center;min-width:46px}
+  .countdown .num{font-family:"Fraunces",serif;font-weight:900;font-size:1.9rem;line-height:1;font-variant-numeric:tabular-nums}
+  .countdown .lab{font-size:.66rem;letter-spacing:.06em;opacity:.9;margin-top:5px}
+  .cd-sep{font-family:"Fraunces",serif;font-weight:900;font-size:1.5rem;opacity:.55;align-self:flex-start;line-height:1.2}
+  .cd-caption{font-size:.74rem;letter-spacing:.14em;text-transform:uppercase;opacity:.9;margin-top:4px}
+  .horizon{position:absolute;left:0;right:0;bottom:0;height:48px;background:var(--sand);
+    border-radius:50% 50% 0 0 / 100% 100% 0 0;transform:scaleX(1.4)}
+
+  /* ---------- NAV ---------- */
+  nav{
+    position:sticky;top:0;z-index:30;
+    background:rgba(246,239,227,.92);backdrop-filter:blur(10px);
+    border-bottom:1px solid var(--line);
+  }
+  .nav-scroll{
+    display:flex;gap:6px;overflow-x:auto;padding:11px 16px;
+    max-width:680px;margin:0 auto;scrollbar-width:none;
+  }
+  .nav-scroll::-webkit-scrollbar{display:none}
+  .nav-scroll a{
+    flex:0 0 auto;text-decoration:none;color:var(--ink);
+    font-size:.85rem;font-weight:700;padding:7px 15px;border-radius:999px;
+    white-space:nowrap;transition:.2s;border:1px solid transparent;
+  }
+  .nav-scroll a:hover{border-color:var(--ocean)}
+  .nav-scroll a.on{background:var(--ocean);color:var(--shell)}
+
+  /* ---------- SECTION ---------- */
+  section{padding:48px 22px 8px}
+  .sec-head{margin-bottom:26px}
+  .sec-head h2{font-family:"Fraunces",serif;font-weight:900;font-size:1.9rem;letter-spacing:-.01em;color:var(--ocean);margin-top:2px}
+
+  /* ---------- TIMELINE ---------- */
+  .timeline{position:relative;padding-left:6px}
+  .day{position:relative;padding:0 0 30px 30px;border-left:2px dashed var(--sand-deep)}
+  .day:last-child{border-left-color:transparent}
+  .day::before{
+    content:"";position:absolute;left:-9px;top:4px;width:16px;height:16px;
+    border-radius:50%;background:var(--coral);border:3px solid var(--sand);
+  }
+  .day.today::before{background:var(--gold);box-shadow:0 0 0 4px rgba(244,169,60,.3)}
+  .day-tag{font-family:"Fraunces",serif;font-style:italic;font-weight:600;color:var(--coral);font-size:.8rem;letter-spacing:.08em}
+  .day-date{display:flex;align-items:baseline;gap:10px;margin:2px 0 14px}
+  .day-date .d{font-family:"Fraunces",serif;font-weight:900;font-size:1.75rem;color:var(--ocean);line-height:1}
+  .day-date .w{font-size:.92rem;font-weight:700;color:var(--ink-soft)}
+  .badge-today{margin-left:auto;background:var(--gold);color:#3a2a05;font-size:.68rem;font-weight:700;padding:3px 10px;border-radius:999px;letter-spacing:.06em}
+  .ev{background:var(--shell);border:1px solid var(--line);border-radius:14px;padding:13px 15px;margin-bottom:9px}
+  .ev-top{display:flex;align-items:center;gap:10px;flex-wrap:wrap}
+  .ev-time{font-family:"Fraunces",serif;font-weight:900;color:var(--coral);font-size:1.02rem;min-width:54px}
+  .ev-title{font-weight:700;font-size:1rem}
+  .ev-sub{font-size:.85rem;color:var(--ink-soft);margin-top:4px}
+  .pill{font-size:.66rem;font-weight:700;letter-spacing:.05em;padding:3px 9px;border-radius:999px}
+  .pill.ok{background:#E4F0E6;color:#2E6B43}
+  .pill.cat{background:var(--ocean);color:var(--shell)}
+  .pill.way{background:var(--sand-deep);color:var(--ink-soft)}
+  .maplink{display:inline-flex;align-items:center;gap:7px;font-size:.82rem;font-weight:700;color:#fff;text-decoration:none;margin-top:10px;background:var(--ocean);padding:8px 14px;border-radius:10px;box-shadow:0 1px 0 rgba(7,40,55,.25);transition:.18s}
+  .maplink:hover{background:var(--ocean-deep)}
+  .maplink:active{transform:translateY(1px)}
+  .maplink::before{content:"";width:12px;height:12px;border-radius:50% 50% 50% 0;background:var(--gold);transform:rotate(45deg);display:inline-block;flex:0 0 auto}
+  .route{background:rgba(11,58,83,.07);border:1px solid rgba(11,58,83,.12);border-radius:12px;padding:11px 14px;margin-top:4px;font-size:.86rem;color:var(--ink);line-height:1.85}
+  .route b{color:var(--ocean)}
+
+  /* ---------- CARDS ---------- */
+  .card{background:var(--shell);border:1px solid var(--line);border-radius:16px;padding:18px;margin-bottom:13px}
+  .card h3{font-size:1.1rem;font-weight:700;display:flex;align-items:center;gap:9px;flex-wrap:wrap}
+  .card .note{font-size:.88rem;color:var(--ink-soft);margin-top:7px;line-height:1.8}
+  .tagrow{display:flex;flex-wrap:wrap;gap:6px;margin-top:10px}
+  .tag{background:var(--sand);border:1px solid var(--line);font-size:.74rem;font-weight:500;color:var(--ink-soft);padding:3px 10px;border-radius:999px}
+
+  /* reservation list */
+  .resv{background:var(--shell);border:1px solid var(--line);border-radius:16px;overflow:hidden}
+  .resv-row{display:flex;gap:13px;padding:15px 16px;border-bottom:1px solid var(--line)}
+  .resv-row:last-child{border-bottom:none}
+  .resv-cat{font-family:"Fraunces",serif;font-weight:600;font-style:italic;font-size:.7rem;letter-spacing:.06em;color:var(--coral);width:62px;flex:0 0 auto;padding-top:2px}
+  .resv-main{flex:1}
+  .resv-main .t{font-weight:700;font-size:.97rem}
+  .resv-main .s{font-size:.83rem;color:var(--ink-soft);margin-top:2px}
+
+  /* shopping */
+  .shop-item{display:flex;gap:13px;align-items:flex-start;background:var(--shell);border:1px solid var(--line);border-radius:14px;padding:14px 15px;margin-bottom:10px;cursor:pointer;transition:.18s}
+  .shop-item:hover{border-color:var(--ocean)}
+  .shop-item.checked{background:#F3F8F2;border-color:#9CC9A6}
+  .shop-rank{font-family:"Fraunces",serif;font-weight:900;font-size:1.35rem;color:var(--ocean);line-height:1;flex:0 0 auto;width:26px;text-align:center;transition:.18s}
+  .shop-item.checked .shop-rank{color:#2E6B43}
+  .shop-body{flex:1}
+  .shop-body .nm{font-weight:700;font-size:1.02rem}
+  .shop-item.checked .shop-body .nm{text-decoration:line-through;color:var(--ink-soft)}
+  .shop-body .ds{font-size:.84rem;color:var(--ink-soft);margin-top:3px}
+  .box{flex:0 0 auto;width:26px;height:26px;border:2.5px solid var(--ocean);background:#fff;border-radius:7px;display:flex;align-items:center;justify-content:center;transition:.18s;margin-top:2px}
+  .shop-item.checked .box{background:#2E8B57;border-color:#2E8B57}
+  .box svg{width:15px;height:15px;opacity:0;transition:.18s}
+  .shop-item.checked .box svg{opacity:1}
+
+  /* map grid */
+  .map-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+  .map-cell{display:block;text-decoration:none;background:var(--shell);border:1px solid var(--line);border-radius:14px;padding:14px;transition:.18s}
+  .map-cell:hover{border-color:var(--ocean);transform:translateY(-2px);box-shadow:0 6px 16px rgba(11,58,83,.1)}
+  .map-cell .mc-cat{font-family:"Fraunces",serif;font-style:italic;font-weight:600;font-size:.68rem;color:var(--coral);letter-spacing:.05em}
+  .map-cell .mc-name{font-weight:700;font-size:.95rem;color:var(--ink);margin-top:3px;line-height:1.4}
+  .map-cell .mc-go{font-size:.76rem;font-weight:700;color:#fff;background:var(--ocean);margin-top:10px;display:inline-flex;align-items:center;gap:5px;padding:5px 11px;border-radius:8px}
+  .map-cell .mc-go::before{content:"";width:10px;height:10px;border-radius:50% 50% 50% 0;background:var(--gold);transform:rotate(45deg);display:inline-block}
+
+  /* memo */
+  .memo{background:var(--ocean);color:#fff;border-radius:18px;padding:22px;margin-bottom:13px}
+  .memo h3{font-family:"Fraunces",serif;font-weight:900;font-size:1.15rem;color:#fff;margin-bottom:9px}
+  .memo p{font-size:.92rem;line-height:1.95;color:#FBFCFC}
+  .memo p b{color:var(--gold);font-weight:700}
+
+  footer{text-align:center;padding:38px 24px 54px;color:var(--ink-soft);font-size:.82rem;line-height:1.9}
+  footer .fhint{background:var(--shell);border:1px solid var(--line);border-radius:14px;padding:14px 16px;margin:0 auto 20px;max-width:440px}
+  footer .fmark{font-family:"Fraunces",serif;font-weight:900;font-style:italic;font-size:1.3rem;color:var(--coral)}
+
+  @media (max-width:420px){
+    .map-grid{grid-template-columns:1fr}
+    section{padding:42px 18px 8px}
+  }
+  @media (prefers-reduced-motion:reduce){
+    html{scroll-behavior:auto}
+    *{transition:none!important}
+  }
+</style>
+</head>
+<body>
+
+<header class="hero">
+  <div class="sun"></div>
+  <div class="hero-inner wrap">
+    <div class="kicker">Family Trip · Oʻahu</div>
+    <h1>HAWAII<small>2026 · WAIKIKI</small></h1>
+    <div class="meta">
+      <b>8.9</b> sat — <b>8.14</b> thu<br>
+      Sheraton Waikiki Beach Resort<br>
+      3ファミリー・9名（大人6・小学生2・幼児1）
+    </div>
+    <div class="countdown" id="countdown">
+      <div class="cd-cell"><span class="num" id="cd-d">–</span><span class="lab">日</span></div>
+      <div class="cd-sep">:</div>
+      <div class="cd-cell"><span class="num" id="cd-h">–</span><span class="lab">時間</span></div>
+      <div class="cd-sep">:</div>
+      <div class="cd-cell"><span class="num" id="cd-m">–</span><span class="lab">分</span></div>
+      <div class="cd-sep">:</div>
+      <div class="cd-cell"><span class="num" id="cd-s">–</span><span class="lab">秒</span></div>
+    </div>
+    <div class="cd-caption">出発まで · days to go</div>
+  </div>
+  <div class="horizon"></div>
+</header>
+
+<nav>
+  <div class="nav-scroll" id="nav">
+    <a href="#schedule">スケジュール</a>
+    <a href="#reservations">予約一覧</a>
+    <a href="#restaurants">レストラン</a>
+    <a href="#shopping">ショッピング</a>
+    <a href="#map">マップ</a>
+    <a href="#memo">メモ</a>
+  </div>
+</nav>
+
+<main class="wrap">
+
+  <!-- ===== SCHEDULE ===== -->
+  <section id="schedule">
+    <div class="sec-head">
+      <div class="eyebrow">Itinerary</div>
+      <h2>スケジュール</h2>
+    </div>
+    <div class="timeline">
+
+      <div class="day" data-date="2026-08-09">
+        <div class="day-tag">DAY 01</div>
+        <div class="day-date"><span class="d">8.9</span><span class="w">土 · 到着日</span></div>
+        <div class="ev">
+          <div class="ev-top"><span class="ev-time">21:55</span><span class="ev-title">羽田発</span><span class="pill cat">往路</span></div>
+          <div class="ev-sub">JAL JL072 ／ プレミアムエコノミー</div>
+        </div>
+        <div class="ev">
+          <div class="ev-top"><span class="ev-time">10:35</span><span class="ev-title">ホノルル着</span></div>
+          <div class="ev-sub">ホテル送迎あり</div>
+        </div>
+        <div class="ev">
+          <div class="ev-top"><span class="ev-time">18:30</span><span class="ev-title">Monkeypod Kitchen Waikiki</span><span class="pill ok">予約済</span></div>
+          <div class="ev-sub">シェラトンから徒歩圏・子連れ向き</div>
+          <a class="maplink" target="_blank" href="https://www.google.com/maps/search/?api=1&query=Monkeypod%20Kitchen%20Waikiki">Google マップで開く</a>
+        </div>
+      </div>
+
+      <div class="day" data-date="2026-08-10">
+        <div class="day-tag">DAY 02</div>
+        <div class="day-date"><span class="d">8.10</span><span class="w">日</span></div>
+        <div class="ev">
+          <div class="ev-top"><span class="ev-time">8:30</span><span class="ev-title">DFSワイキキ 集合</span></div>
+          <div class="ev-sub">トロリー乗り場に集合</div>
+          <a class="maplink" target="_blank" href="https://www.google.com/maps/search/?api=1&query=DFS%20Waikiki">Google マップで開く</a>
+        </div>
+        <div class="ev">
+          <div class="ev-top"><span class="ev-time">終日</span><span class="ev-title">パイナップル列車＆ノースショアツアー</span><span class="pill ok">予約済</span></div>
+        </div>
+      </div>
+
+      <div class="day" data-date="2026-08-11">
+        <div class="day-tag">DAY 03</div>
+        <div class="day-date"><span class="d">8.11</span><span class="w">月 · 動物園デー</span></div>
+        <div class="ev">
+          <div class="ev-top"><span class="ev-time">午前</span><span class="ev-title">ホノルル動物園</span></div>
+          <div class="ev-sub">半日程度で回れる・子連れ向き</div>
+          <a class="maplink" target="_blank" href="https://www.google.com/maps/search/?api=1&query=Honolulu%20Zoo">Google マップで開く</a>
+        </div>
+        <div class="ev">
+          <div class="ev-top"><span class="ev-time">昼</span><span class="ev-title">Bogart's Cafe → カピオラニ公園</span></div>
+          <div class="ev-sub">Bogart'sはテイクアウト推奨。公園でピクニックランチ</div>
+        </div>
+        <div class="route">
+          <b>おすすめルート</b><br>
+          Uber/Lyft 2台で動物園へ → 見学 → Bogart's Cafeでテイクアウト → カピオラニ公園でランチ → 公園散策 → ホテル方面へ徒歩で戻る
+        </div>
+      </div>
+
+      <div class="day" data-date="2026-08-12">
+        <div class="day-tag">DAY 04</div>
+        <div class="day-date"><span class="d">8.12</span><span class="w">火 · 自由行動</span></div>
+        <div class="ev">
+          <div class="ev-top"><span class="ev-time">午前</span><span class="ev-title">ショッピング</span></div>
+          <div class="ev-sub">Kithは開店直後（10:00頃）が狙い目。平日推奨</div>
+        </div>
+        <div class="ev">
+          <div class="ev-top"><span class="ev-time">17:30</span><span class="ev-title">Aloha Steak House</span><span class="pill ok">予約済 · 9名</span></div>
+          <a class="maplink" target="_blank" href="https://www.google.com/maps/search/?api=1&query=Aloha%20Steak%20House%20Waikiki">Google マップで開く</a>
+        </div>
+      </div>
+
+      <div class="day" data-date="2026-08-13">
+        <div class="day-tag">DAY 05</div>
+        <div class="day-date"><span class="d">8.13</span><span class="w">水 · 帰国</span></div>
+        <div class="ev">
+          <div class="ev-top"><span class="ev-time">12:45</span><span class="ev-title">ホノルル発</span><span class="pill cat">復路</span></div>
+          <div class="ev-sub">JAL JL073</div>
+        </div>
+      </div>
+
+      <div class="day" data-date="2026-08-14">
+        <div class="day-tag">DAY 06</div>
+        <div class="day-date"><span class="d">8.14</span><span class="w">木</span></div>
+        <div class="ev">
+          <div class="ev-top"><span class="ev-time">15:55</span><span class="ev-title">羽田着</span></div>
+          <div class="ev-sub">おかえりなさい</div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ===== RESERVATIONS ===== -->
+  <section id="reservations">
+    <div class="sec-head">
+      <div class="eyebrow">Confirmed</div>
+      <h2>予約一覧</h2>
+    </div>
+    <div class="resv">
+      <div class="resv-row"><div class="resv-cat">FLIGHT</div><div class="resv-main"><div class="t">往路 · JAL JL072</div><div class="s">8/9 21:55 羽田 → 10:35 ホノルル ／ プレミアムエコノミー</div></div></div>
+      <div class="resv-row"><div class="resv-cat">HOTEL</div><div class="resv-main"><div class="t">Sheraton Waikiki Beach Resort</div><div class="s">8/9 〜 8/13 滞在</div></div></div>
+      <div class="resv-row"><div class="resv-cat">PICKUP</div><div class="resv-main"><div class="t">ホテル送迎</div><div class="s">8/9 ホノルル到着時</div></div></div>
+      <div class="resv-row"><div class="resv-cat">DINING</div><div class="resv-main"><div class="t">Monkeypod Kitchen Waikiki</div><div class="s">8/9 18:30</div></div></div>
+      <div class="resv-row"><div class="resv-cat">TOUR</div><div class="resv-main"><div class="t">パイナップル列車＆ノースショアツアー</div><div class="s">8/10 8:30 DFSワイキキ集合</div></div></div>
+      <div class="resv-row"><div class="resv-cat">DINING</div><div class="resv-main"><div class="t">Aloha Steak House</div><div class="s">8/12 17:30 ／ 9名</div></div></div>
+      <div class="resv-row"><div class="resv-cat">FLIGHT</div><div class="resv-main"><div class="t">復路 · JAL JL073</div><div class="s">8/13 12:45 ホノルル → 8/14 15:55 羽田</div></div></div>
+    </div>
+  </section>
+
+  <!-- ===== RESTAURANTS ===== -->
+  <section id="restaurants">
+    <div class="sec-head">
+      <div class="eyebrow">Eat & Drink</div>
+      <h2>レストラン</h2>
+    </div>
+
+    <div class="card">
+      <h3>Monkeypod Kitchen Waikiki <span class="pill ok">8/9 18:30</span></h3>
+      <div class="note">到着日にぴったり。シェラトンから徒歩圏で子連れにも安心。</div>
+      <div class="tagrow"><span class="tag">到着日向き</span><span class="tag">子連れ向き</span><span class="tag">徒歩圏</span></div>
+    </div>
+
+    <div class="card">
+      <h3>Aloha Steak House <span class="pill ok">8/12 17:30 · 9名</span></h3>
+      <div class="note">夕食予約済み。9名で確保済み。</div>
+    </div>
+
+    <div class="card">
+      <h3>Bogart's Cafe</h3>
+      <div class="note">アサイーボウルが有名。9人着席は難しいのでテイクアウトして、カピオラニ公園で食べるのがおすすめ。</div>
+      <div class="tagrow"><span class="tag">アサイーボウル</span><span class="tag">テイクアウト推奨</span></div>
+    </div>
+
+    <div class="card">
+      <h3>ポキ丼 <span class="tag">幼児も条件付きでOK</span></h3>
+      <div class="note">3歳半でも、辛くない味付け・生玉ねぎ少なめなら大丈夫。<b>Shoyu Ahi</b> がおすすめ。大人のポキを少量取り分けて、白ご飯やスパムむすびを足すと食べやすい。</div>
+      <div class="tagrow"><span class="tag">Foodland Farms Ala Moana</span><span class="tag">Maguro Spot</span></div>
+    </div>
+  </section>
+
+  <!-- ===== SHOPPING ===== -->
+  <section id="shopping">
+    <div class="sec-head">
+      <div class="eyebrow">Shopping · 優先順</div>
+      <h2>ショッピング</h2>
+    </div>
+
+    <div class="shop-item" onclick="toggleShop(this)">
+      <div class="shop-rank">1</div>
+      <div class="shop-body"><div class="nm">Kith Hawaii</div><div class="ds">8/12(火)午前・開店直後10:00頃・平日推奨。限定例：Honolulu Script Tee／Hibiscus Tee／Diamond Head Tee／Hawaii Exclusive Cap／Kith Treats Hawaii</div></div>
+      <div class="box"><svg viewBox="0 0 24 24" fill="none"><path d="M5 13l4 4L19 7" stroke="#fff" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+    </div>
+    <div class="shop-item" onclick="toggleShop(this)">
+      <div class="shop-rank">2</div>
+      <div class="shop-body"><div class="nm">Stussy Honolulu</div><div class="ds">Honolulu限定Tシャツ・キャップ・限定カラー狙い</div></div>
+      <div class="box"><svg viewBox="0 0 24 24" fill="none"><path d="M5 13l4 4L19 7" stroke="#fff" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+    </div>
+    <div class="shop-item" onclick="toggleShop(this)">
+      <div class="shop-rank">3</div>
+      <div class="shop-body"><div class="nm">Chrome Hearts Honolulu</div><div class="ds">人気シルバーは在庫不安定。キャップ・ジップパーカー・ロンTは比較的遭遇率高め</div></div>
+      <div class="box"><svg viewBox="0 0 24 24" fill="none"><path d="M5 13l4 4L19 7" stroke="#fff" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+    </div>
+    <div class="shop-item" onclick="toggleShop(this)">
+      <div class="shop-rank">4</div>
+      <div class="shop-body"><div class="nm">Patagonia Honolulu</div></div>
+      <div class="box"><svg viewBox="0 0 24 24" fill="none"><path d="M5 13l4 4L19 7" stroke="#fff" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+    </div>
+    <div class="shop-item" onclick="toggleShop(this)">
+      <div class="shop-rank">5</div>
+      <div class="shop-body"><div class="nm">ALOHA Collection</div></div>
+      <div class="box"><svg viewBox="0 0 24 24" fill="none"><path d="M5 13l4 4L19 7" stroke="#fff" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+    </div>
+  </section>
+
+  <!-- ===== MAP ===== -->
+  <section id="map">
+    <div class="sec-head">
+      <div class="eyebrow">Tap to open in Maps</div>
+      <h2>マップ</h2>
+    </div>
+    <div class="map-grid">
+      <a class="map-cell" target="_blank" href="https://www.google.com/maps/search/?api=1&query=Sheraton%20Waikiki%20Beach%20Resort"><div class="mc-cat">Hotel</div><div class="mc-name">Sheraton Waikiki</div><div class="mc-go">開く</div></a>
+      <a class="map-cell" target="_blank" href="https://www.google.com/maps/search/?api=1&query=Monkeypod%20Kitchen%20Waikiki"><div class="mc-cat">Dining</div><div class="mc-name">Monkeypod Kitchen</div><div class="mc-go">開く</div></a>
+      <a class="map-cell" target="_blank" href="https://www.google.com/maps/search/?api=1&query=Aloha%20Steak%20House%20Waikiki"><div class="mc-cat">Dining</div><div class="mc-name">Aloha Steak House</div><div class="mc-go">開く</div></a>
+      <a class="map-cell" target="_blank" href="https://www.google.com/maps/search/?api=1&query=DFS%20Waikiki"><div class="mc-cat">Meet</div><div class="mc-name">DFSワイキキ</div><div class="mc-go">開く</div></a>
+      <a class="map-cell" target="_blank" href="https://www.google.com/maps/search/?api=1&query=Honolulu%20Zoo"><div class="mc-cat">Sight</div><div class="mc-name">ホノルル動物園</div><div class="mc-go">開く</div></a>
+      <a class="map-cell" target="_blank" href="https://www.google.com/maps/search/?api=1&query=Bogart's%20Cafe%20Honolulu"><div class="mc-cat">Cafe</div><div class="mc-name">Bogart's Cafe</div><div class="mc-go">開く</div></a>
+      <a class="map-cell" target="_blank" href="https://www.google.com/maps/search/?api=1&query=Kapiolani%20Regional%20Park"><div class="mc-cat">Park</div><div class="mc-name">カピオラニ公園</div><div class="mc-go">開く</div></a>
+      <a class="map-cell" target="_blank" href="https://www.google.com/maps/search/?api=1&query=Kith%20Hawaii"><div class="mc-cat">Shop</div><div class="mc-name">Kith Hawaii</div><div class="mc-go">開く</div></a>
+      <a class="map-cell" target="_blank" href="https://www.google.com/maps/search/?api=1&query=Stussy%20Honolulu"><div class="mc-cat">Shop</div><div class="mc-name">Stussy Honolulu</div><div class="mc-go">開く</div></a>
+      <a class="map-cell" target="_blank" href="https://www.google.com/maps/search/?api=1&query=Chrome%20Hearts%20Honolulu"><div class="mc-cat">Shop</div><div class="mc-name">Chrome Hearts</div><div class="mc-go">開く</div></a>
+      <a class="map-cell" target="_blank" href="https://www.google.com/maps/search/?api=1&query=Foodland%20Farms%20Ala%20Moana"><div class="mc-cat">Poke</div><div class="mc-name">Foodland Farms</div><div class="mc-go">開く</div></a>
+      <a class="map-cell" target="_blank" href="https://www.google.com/maps/search/?api=1&query=Maguro%20Spot%20Honolulu"><div class="mc-cat">Poke</div><div class="mc-name">Maguro Spot</div><div class="mc-go">開く</div></a>
+    </div>
+  </section>
+
+  <!-- ===== MEMO ===== -->
+  <section id="memo">
+    <div class="sec-head">
+      <div class="eyebrow">Good to know</div>
+      <h2>メモ</h2>
+    </div>
+    <div class="memo">
+      <h3>移動のこと</h3>
+      <p>ワイキキ周辺は<b>徒歩中心</b>がおすすめ。9人の移動は<b>Uber/Lyftを基本2台</b>に分かれて。遠距離は大型車を予約しておくとスムーズ。Uberは補助的に使うのが◎</p>
+    </div>
+    <div class="memo">
+      <h3>子連れごはん</h3>
+      <p>ポキ丼は3歳半でも条件付きでOK（<b>辛くない味付け・生玉ねぎ少なめ</b>）。大人のポキを取り分けて、白ご飯やスパムむすびを足すと安心。Bogart'sは混むのでテイクアウト前提で。</p>
+    </div>
+    <div class="memo">
+      <h3>動物園デー（8/11）</h3>
+      <p>Uber/Lyft 2台で動物園へ → 見学 → Bogart'sでテイクアウト → <b>カピオラニ公園</b>でランチ（木陰とベンチあり・9人でもゆったり）→ 散策 → 徒歩でホテルへ。</p>
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  <div class="fhint">スマホのブラウザで「ホーム画面に追加」しておくと、旅のしおりとしてすぐ開けます 🤙</div>
+  <div class="fmark">Mahalo</div>
+  HAWAII 2026 · Waikiki<br>3 families, 9 of us
+</footer>
+
+<script>
+  // ---- Live countdown to departure (2026-08-09 21:55) ----
+  (function(){
+    var dep = new Date(2026,7,9,21,55,0);
+    var box = document.getElementById('countdown');
+    var cap = document.querySelector('.cd-caption');
+    function pad(n){ return String(n).padStart(2,'0'); }
+    function tick(){
+      var diff = dep - new Date();
+      if (diff <= 0){
+        box.innerHTML = '<div class="cd-cell" style="min-width:auto"><span class="num">Aloha!</span></div>';
+        if (cap) cap.textContent = '旅の途中 · enjoy';
+        clearInterval(timer);
+        return;
+      }
+      var d = Math.floor(diff/86400000);
+      var h = Math.floor(diff%86400000/3600000);
+      var m = Math.floor(diff%3600000/60000);
+      var s = Math.floor(diff%60000/1000);
+      document.getElementById('cd-d').textContent = d;
+      document.getElementById('cd-h').textContent = pad(h);
+      document.getElementById('cd-m').textContent = pad(m);
+      document.getElementById('cd-s').textContent = pad(s);
+    }
+    tick();
+    var timer = setInterval(tick, 1000);
+  })();
+
+  // ---- Highlight today's day card during the trip ----
+  (function(){
+    var today = new Date();
+    var y = today.getFullYear(), m = String(today.getMonth()+1).padStart(2,'0'), d = String(today.getDate()).padStart(2,'0');
+    var key = y+'-'+m+'-'+d;
+    var card = document.querySelector('.day[data-date="'+key+'"]');
+    if (card){
+      card.classList.add('today');
+      var dateRow = card.querySelector('.day-date');
+      var badge = document.createElement('span');
+      badge.className = 'badge-today';
+      badge.textContent = 'TODAY · 本日';
+      dateRow.appendChild(badge);
+    }
+  })();
+
+  // ---- Shopping checklist (session only) ----
+  function toggleShop(el){ el.classList.toggle('checked'); }
+
+  // ---- Active nav highlight on scroll ----
+  (function(){
+    var links = Array.prototype.slice.call(document.querySelectorAll('#nav a'));
+    var sections = links.map(function(a){ return document.querySelector(a.getAttribute('href')); });
+    function onScroll(){
+      var pos = window.scrollY + 120;
+      var idx = 0;
+      for (var i=0;i<sections.length;i++){ if (sections[i] && sections[i].offsetTop <= pos) idx = i; }
+      links.forEach(function(a,i){ a.classList.toggle('on', i===idx); });
+    }
+    window.addEventListener('scroll', onScroll, {passive:true});
+    onScroll();
+  })();
+</script>
+</body>
+</html>
