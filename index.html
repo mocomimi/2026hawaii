@@ -134,6 +134,10 @@
   .pill.ok{background:#E4F0E6;color:#2E6B43}
   .pill.cat{background:var(--ocean);color:var(--shell)}
   .pill.way{background:var(--sand-deep);color:var(--ink-soft)}
+  .pill.tba{background:#FBE7C2;color:#8A5300;border:1px dashed #D9A24E}
+  .ico-ok{width:19px;height:19px;flex:0 0 auto;vertical-align:middle}
+  .legend{display:flex;align-items:center;gap:7px;flex-wrap:wrap;margin-top:12px;font-size:.8rem;color:var(--ink-soft)}
+  .legend .lg-txt{margin-right:6px}
   .maplink{display:inline-flex;align-items:center;gap:7px;font-size:.82rem;font-weight:700;color:#fff;text-decoration:none;margin-top:10px;background:var(--ocean);padding:8px 14px;border-radius:10px;box-shadow:0 1px 0 rgba(7,40,55,.25);transition:.18s}
   .maplink:hover{background:var(--ocean-deep)}
   .maplink:active{transform:translateY(1px)}
@@ -230,10 +234,7 @@
 <nav>
   <div class="nav-scroll" id="nav">
     <a href="#schedule">スケジュール</a>
-    <a href="#reservations">予約一覧</a>
-    <a href="#restaurants">レストラン</a>
-    <a href="#shopping">ショッピング</a>
-    <a href="#map">マップ</a>
+    <a href="#restaurants">レストラン候補</a>
     <a href="#memo">メモ</a>
   </div>
 </nav>
@@ -245,6 +246,7 @@
     <div class="sec-head">
       <div class="eyebrow">Itinerary</div>
       <h2>スケジュール</h2>
+      <div class="legend"><span class="pill ok">予約済</span><svg class="ico-ok" viewBox="0 0 24 24" role="img" aria-label="予約済"><title>予約済</title><circle cx="12" cy="12" r="11" fill="#2E8B57"/><path d="M7 12.5l3 3 7-7" fill="none" stroke="#fff" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg><span class="lg-txt">＝確定</span><span class="pill tba">仮</span><span class="lg-txt">＝未確定</span></div>
     </div>
     <div class="timeline">
 
@@ -252,7 +254,7 @@
         <div class="day-tag">DAY 01</div>
         <div class="day-date"><span class="d">8.9</span><span class="w">土 · 到着日</span></div>
         <div class="ev">
-          <div class="ev-top"><span class="ev-time">21:55</span><span class="ev-title">羽田発</span><span class="pill cat">往路</span></div>
+          <div class="ev-top"><span class="ev-time">21:55</span><span class="ev-title">羽田発</span><span class="pill cat">往路</span><svg class="ico-ok" viewBox="0 0 24 24" role="img" aria-label="予約済"><title>予約済</title><circle cx="12" cy="12" r="11" fill="#2E8B57"/><path d="M7 12.5l3 3 7-7" fill="none" stroke="#fff" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
           <div class="ev-sub">JAL JL072 ／ プレミアムエコノミー</div>
         </div>
         <div class="ev">
@@ -283,12 +285,12 @@
         <div class="day-tag">DAY 03</div>
         <div class="day-date"><span class="d">8.11</span><span class="w">月 · 動物園デー</span></div>
         <div class="ev">
-          <div class="ev-top"><span class="ev-time">午前</span><span class="ev-title">ホノルル動物園</span></div>
+          <div class="ev-top"><span class="ev-time">午前</span><span class="ev-title">ホノルル動物園</span><span class="pill tba">仮</span></div>
           <div class="ev-sub">半日程度で回れる・子連れ向き</div>
           <a class="maplink" target="_blank" href="https://www.google.com/maps/search/?api=1&query=Honolulu%20Zoo">Google マップで開く</a>
         </div>
         <div class="ev">
-          <div class="ev-top"><span class="ev-time">昼</span><span class="ev-title">Bogart's Cafe → カピオラニ公園</span></div>
+          <div class="ev-top"><span class="ev-time">昼</span><span class="ev-title">Bogart's Cafe → カピオラニ公園</span><span class="pill tba">仮</span></div>
           <div class="ev-sub">Bogart'sはテイクアウト推奨。公園でピクニックランチ</div>
         </div>
         <div class="route">
@@ -301,8 +303,8 @@
         <div class="day-tag">DAY 04</div>
         <div class="day-date"><span class="d">8.12</span><span class="w">火 · 自由行動</span></div>
         <div class="ev">
-          <div class="ev-top"><span class="ev-time">午前</span><span class="ev-title">ショッピング</span></div>
-          <div class="ev-sub">Kithは開店直後（10:00頃）が狙い目。平日推奨</div>
+          <div class="ev-top"><span class="ev-time">午前</span><span class="ev-title">ショッピング</span><span class="pill tba">仮</span></div>
+          <div class="ev-sub">平日の午前は比較的空いていておすすめ</div>
         </div>
         <div class="ev">
           <div class="ev-top"><span class="ev-time">17:30</span><span class="ev-title">Aloha Steak House</span><span class="pill ok">予約済 · 9名</span></div>
@@ -314,7 +316,7 @@
         <div class="day-tag">DAY 05</div>
         <div class="day-date"><span class="d">8.13</span><span class="w">水 · 帰国</span></div>
         <div class="ev">
-          <div class="ev-top"><span class="ev-time">12:45</span><span class="ev-title">ホノルル発</span><span class="pill cat">復路</span></div>
+          <div class="ev-top"><span class="ev-time">12:45</span><span class="ev-title">ホノルル発</span><span class="pill cat">復路</span><svg class="ico-ok" viewBox="0 0 24 24" role="img" aria-label="予約済"><title>予約済</title><circle cx="12" cy="12" r="11" fill="#2E8B57"/><path d="M7 12.5l3 3 7-7" fill="none" stroke="#fff" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
           <div class="ev-sub">JAL JL073</div>
         </div>
       </div>
@@ -331,107 +333,60 @@
     </div>
   </section>
 
-  <!-- ===== RESERVATIONS ===== -->
-  <section id="reservations">
-    <div class="sec-head">
-      <div class="eyebrow">Confirmed</div>
-      <h2>予約一覧</h2>
-    </div>
-    <div class="resv">
-      <div class="resv-row"><div class="resv-cat">FLIGHT</div><div class="resv-main"><div class="t">往路 · JAL JL072</div><div class="s">8/9 21:55 羽田 → 10:35 ホノルル ／ プレミアムエコノミー</div></div></div>
-      <div class="resv-row"><div class="resv-cat">HOTEL</div><div class="resv-main"><div class="t">Sheraton Waikiki Beach Resort</div><div class="s">8/9 〜 8/13 滞在</div></div></div>
-      <div class="resv-row"><div class="resv-cat">PICKUP</div><div class="resv-main"><div class="t">ホテル送迎</div><div class="s">8/9 ホノルル到着時</div></div></div>
-      <div class="resv-row"><div class="resv-cat">DINING</div><div class="resv-main"><div class="t">Monkeypod Kitchen Waikiki</div><div class="s">8/9 18:30</div></div></div>
-      <div class="resv-row"><div class="resv-cat">TOUR</div><div class="resv-main"><div class="t">パイナップル列車＆ノースショアツアー</div><div class="s">8/10 8:30 DFSワイキキ集合</div></div></div>
-      <div class="resv-row"><div class="resv-cat">DINING</div><div class="resv-main"><div class="t">Aloha Steak House</div><div class="s">8/12 17:30 ／ 9名</div></div></div>
-      <div class="resv-row"><div class="resv-cat">FLIGHT</div><div class="resv-main"><div class="t">復路 · JAL JL073</div><div class="s">8/13 12:45 ホノルル → 8/14 15:55 羽田</div></div></div>
-    </div>
-  </section>
-
   <!-- ===== RESTAURANTS ===== -->
   <section id="restaurants">
     <div class="sec-head">
-      <div class="eyebrow">Eat & Drink</div>
-      <h2>レストラン</h2>
+      <div class="eyebrow">Where to eat</div>
+      <h2>レストラン候補</h2>
     </div>
 
     <div class="card">
-      <h3>Monkeypod Kitchen Waikiki <span class="pill ok">8/9 18:30</span></h3>
-      <div class="note">到着日にぴったり。シェラトンから徒歩圏で子連れにも安心。</div>
-      <div class="tagrow"><span class="tag">到着日向き</span><span class="tag">子連れ向き</span><span class="tag">徒歩圏</span></div>
+      <h3>ボガーツカフェ <span class="pill cat">Cafe</span></h3>
+      <div class="note">ダイヤモンドヘッド近く、モンサラット通りのカフェ。<b>アサイーボウル</b>が有名。9人での着席は難しいので、テイクアウトしてカピオラニ公園で食べるのがおすすめ。</div>
+      <div class="tagrow"><span class="tag">アサイーボウル</span><span class="tag">朝食向き</span><span class="tag">テイクアウト推奨</span></div>
+      <a class="maplink" target="_blank" href="https://www.google.com/maps/search/?api=1&query=Bogart's%20Cafe%20Honolulu">Google マップで開く</a>
     </div>
 
     <div class="card">
-      <h3>Aloha Steak House <span class="pill ok">8/12 17:30 · 9名</span></h3>
-      <div class="note">夕食予約済み。9名で確保済み。</div>
+      <h3>ミーバーベキュー <span class="pill cat">Korean</span></h3>
+      <div class="note">ワイキキの家族経営・老舗の韓国料理店。カルビやBBQチキンのプレートが評判で、<b>ボリューム満点・手頃な価格</b>。オープンエアの席もあり。※同名のよく似た別店があるので注意。</div>
+      <div class="tagrow"><span class="tag">韓国料理</span><span class="tag">プレートランチ</span><span class="tag">コスパ良</span></div>
+      <a class="maplink" target="_blank" href="https://www.google.com/maps/search/?api=1&query=Me%20Bar-B-Que%20Waikiki">Google マップで開く</a>
     </div>
 
     <div class="card">
-      <h3>Bogart's Cafe</h3>
-      <div class="note">アサイーボウルが有名。9人着席は難しいのでテイクアウトして、カピオラニ公園で食べるのがおすすめ。</div>
-      <div class="tagrow"><span class="tag">アサイーボウル</span><span class="tag">テイクアウト推奨</span></div>
+      <h3>アランチーノ <span class="pill cat">Italian</span></h3>
+      <div class="note">日本人にも人気のイタリアン。ワイキキ周辺に複数店舗があり、<b>ウニクリームパスタ</b>などが名物。人気店なので予約推奨。</div>
+      <div class="tagrow"><span class="tag">イタリアン</span><span class="tag">人気店</span><span class="tag">予約推奨</span></div>
+      <a class="maplink" target="_blank" href="https://www.google.com/maps/search/?api=1&query=Arancino%20di%20Mare%20Waikiki">Google マップで開く</a>
     </div>
 
     <div class="card">
-      <h3>ポキ丼 <span class="tag">幼児も条件付きでOK</span></h3>
-      <div class="note">3歳半でも、辛くない味付け・生玉ねぎ少なめなら大丈夫。<b>Shoyu Ahi</b> がおすすめ。大人のポキを少量取り分けて、白ご飯やスパムむすびを足すと食べやすい。</div>
-      <div class="tagrow"><span class="tag">Foodland Farms Ala Moana</span><span class="tag">Maguro Spot</span></div>
-    </div>
-  </section>
-
-  <!-- ===== SHOPPING ===== -->
-  <section id="shopping">
-    <div class="sec-head">
-      <div class="eyebrow">Shopping · 優先順</div>
-      <h2>ショッピング</h2>
+      <h3>チーズケーキファクトリー <span class="pill cat">American</span></h3>
+      <div class="note">ロイヤルハワイアンセンター内。メニューもポーションも超大型のアメリカンレストランで、<b>30種以上のチーズケーキ</b>が名物。予約不可で行列必至なので、早めの時間か待ち時間覚悟で。</div>
+      <div class="tagrow"><span class="tag">アメリカン</span><span class="tag">大盛り</span><span class="tag">予約不可・行列</span></div>
+      <a class="maplink" target="_blank" href="https://www.google.com/maps/search/?api=1&query=The%20Cheesecake%20Factory%20Waikiki">Google マップで開く</a>
     </div>
 
-    <div class="shop-item" onclick="toggleShop(this)">
-      <div class="shop-rank">1</div>
-      <div class="shop-body"><div class="nm">Kith Hawaii</div><div class="ds">8/12(火)午前・開店直後10:00頃・平日推奨。限定例：Honolulu Script Tee／Hibiscus Tee／Diamond Head Tee／Hawaii Exclusive Cap／Kith Treats Hawaii</div></div>
-      <div class="box"><svg viewBox="0 0 24 24" fill="none"><path d="M5 13l4 4L19 7" stroke="#fff" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+    <div class="card">
+      <h3>nalu <span class="pill cat">Healthy</span></h3>
+      <div class="note">ワイキキ・ビーチウォークのヘルシーカフェ。オーガニックの<b>アサイーボウル</b>が看板で、ジュース・スムージー・サラダ・ラップも。7:00開店で朝食にもぴったり。店前に芝生スペースあり。</div>
+      <div class="tagrow"><span class="tag">アサイーボウル</span><span class="tag">ヘルシー</span><span class="tag">朝食向き</span></div>
+      <a class="maplink" target="_blank" href="https://www.google.com/maps/search/?api=1&query=Nalu%20Health%20Bar%20Cafe%20Waikiki%20Beach%20Walk">Google マップで開く</a>
     </div>
-    <div class="shop-item" onclick="toggleShop(this)">
-      <div class="shop-rank">2</div>
-      <div class="shop-body"><div class="nm">Stussy Honolulu</div><div class="ds">Honolulu限定Tシャツ・キャップ・限定カラー狙い</div></div>
-      <div class="box"><svg viewBox="0 0 24 24" fill="none"><path d="M5 13l4 4L19 7" stroke="#fff" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
-    </div>
-    <div class="shop-item" onclick="toggleShop(this)">
-      <div class="shop-rank">3</div>
-      <div class="shop-body"><div class="nm">Chrome Hearts Honolulu</div><div class="ds">人気シルバーは在庫不安定。キャップ・ジップパーカー・ロンTは比較的遭遇率高め</div></div>
-      <div class="box"><svg viewBox="0 0 24 24" fill="none"><path d="M5 13l4 4L19 7" stroke="#fff" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
-    </div>
-    <div class="shop-item" onclick="toggleShop(this)">
-      <div class="shop-rank">4</div>
-      <div class="shop-body"><div class="nm">Patagonia Honolulu</div></div>
-      <div class="box"><svg viewBox="0 0 24 24" fill="none"><path d="M5 13l4 4L19 7" stroke="#fff" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
-    </div>
-    <div class="shop-item" onclick="toggleShop(this)">
-      <div class="shop-rank">5</div>
-      <div class="shop-body"><div class="nm">ALOHA Collection</div></div>
-      <div class="box"><svg viewBox="0 0 24 24" fill="none"><path d="M5 13l4 4L19 7" stroke="#fff" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
-    </div>
-  </section>
 
-  <!-- ===== MAP ===== -->
-  <section id="map">
-    <div class="sec-head">
-      <div class="eyebrow">Tap to open in Maps</div>
-      <h2>マップ</h2>
+    <div class="card">
+      <h3>Haleiwa Joe's <span class="pill cat">North Shore</span></h3>
+      <div class="note">ノースショア・ハレイワの定番シーフード／アメリカン。座って食べられて<b>9名でも安心</b>なので、8/10ツアー中のランチ候補に。日〜木 11:30〜21:30、金土〜22:00。</div>
+      <div class="tagrow"><span class="tag">シーフード</span><span class="tag">着席・グループ向き</span><span class="tag">8/10向き</span></div>
+      <a class="maplink" target="_blank" href="https://www.google.com/maps/search/?api=1&query=Haleiwa%20Joe's%20Seafood%20Grill%20Haleiwa">Google マップで開く</a>
     </div>
-    <div class="map-grid">
-      <a class="map-cell" target="_blank" href="https://www.google.com/maps/search/?api=1&query=Sheraton%20Waikiki%20Beach%20Resort"><div class="mc-cat">Hotel</div><div class="mc-name">Sheraton Waikiki</div><div class="mc-go">開く</div></a>
-      <a class="map-cell" target="_blank" href="https://www.google.com/maps/search/?api=1&query=Monkeypod%20Kitchen%20Waikiki"><div class="mc-cat">Dining</div><div class="mc-name">Monkeypod Kitchen</div><div class="mc-go">開く</div></a>
-      <a class="map-cell" target="_blank" href="https://www.google.com/maps/search/?api=1&query=Aloha%20Steak%20House%20Waikiki"><div class="mc-cat">Dining</div><div class="mc-name">Aloha Steak House</div><div class="mc-go">開く</div></a>
-      <a class="map-cell" target="_blank" href="https://www.google.com/maps/search/?api=1&query=DFS%20Waikiki"><div class="mc-cat">Meet</div><div class="mc-name">DFSワイキキ</div><div class="mc-go">開く</div></a>
-      <a class="map-cell" target="_blank" href="https://www.google.com/maps/search/?api=1&query=Honolulu%20Zoo"><div class="mc-cat">Sight</div><div class="mc-name">ホノルル動物園</div><div class="mc-go">開く</div></a>
-      <a class="map-cell" target="_blank" href="https://www.google.com/maps/search/?api=1&query=Bogart's%20Cafe%20Honolulu"><div class="mc-cat">Cafe</div><div class="mc-name">Bogart's Cafe</div><div class="mc-go">開く</div></a>
-      <a class="map-cell" target="_blank" href="https://www.google.com/maps/search/?api=1&query=Kapiolani%20Regional%20Park"><div class="mc-cat">Park</div><div class="mc-name">カピオラニ公園</div><div class="mc-go">開く</div></a>
-      <a class="map-cell" target="_blank" href="https://www.google.com/maps/search/?api=1&query=Kith%20Hawaii"><div class="mc-cat">Shop</div><div class="mc-name">Kith Hawaii</div><div class="mc-go">開く</div></a>
-      <a class="map-cell" target="_blank" href="https://www.google.com/maps/search/?api=1&query=Stussy%20Honolulu"><div class="mc-cat">Shop</div><div class="mc-name">Stussy Honolulu</div><div class="mc-go">開く</div></a>
-      <a class="map-cell" target="_blank" href="https://www.google.com/maps/search/?api=1&query=Chrome%20Hearts%20Honolulu"><div class="mc-cat">Shop</div><div class="mc-name">Chrome Hearts</div><div class="mc-go">開く</div></a>
-      <a class="map-cell" target="_blank" href="https://www.google.com/maps/search/?api=1&query=Foodland%20Farms%20Ala%20Moana"><div class="mc-cat">Poke</div><div class="mc-name">Foodland Farms</div><div class="mc-go">開く</div></a>
-      <a class="map-cell" target="_blank" href="https://www.google.com/maps/search/?api=1&query=Maguro%20Spot%20Honolulu"><div class="mc-cat">Poke</div><div class="mc-name">Maguro Spot</div><div class="mc-go">開く</div></a>
+
+    <div class="card">
+      <h3>Seven Brothers <span class="pill cat">North Shore</span></h3>
+      <div class="note">サモア系家族経営の<b>カジュアルなバーガー店</b>。屋外席があり子ども連れにも気軽。ハレイワ／カフク／シャークスコーブ向かいに店舗あり、8/10ツアー中のランチ候補に。</div>
+      <div class="tagrow"><span class="tag">バーガー</span><span class="tag">カジュアル</span><span class="tag">キッズ向き</span><span class="tag">8/10向き</span></div>
+      <a class="maplink" target="_blank" href="https://www.google.com/maps/search/?api=1&query=Seven%20Brothers%20Burgers%20Haleiwa">Google マップで開く</a>
     </div>
   </section>
 
